@@ -2,7 +2,7 @@
 
 ## Ejercicio 1
 
-*Buscar una aplicación de ejemplo, preferiblemente propia, y deducir qué patrón es el que usa. ¿Qué habría que hacer para evolucionar a un patrón tipo microservicios?*
+**Buscar una aplicación de ejemplo, preferiblemente propia, y deducir qué patrón es el que usa. ¿Qué habría que hacer para evolucionar a un patrón tipo microservicios?**
 
 La aplicación que he elegido es un proyecto en el que estoy trabajando y que se encuentra en [este repositorio](https://github.com/aure-nogueras/Refranator). Se trata de un generador de refranes. El usuario accede a esta [url](https://refranator.herokuapp.com) y puede visualizar un refrán. Cada vez que se recarga la página, se muestra un refrán seleccionado de una lista aleatoriamente.
 
@@ -17,7 +17,7 @@ Esta arquitectura también podría considerarse de microservicios al dividir las
 
 ## Ejercicio 2
 
-*En la aplicación que se ha usado como ejemplo en el ejercicio anterior, ¿podría usar diferentes lenguajes? ¿Qué almacenes de datos serían los más convenientes?*
+**En la aplicación que se ha usado como ejemplo en el ejercicio anterior, ¿podría usar diferentes lenguajes? ¿Qué almacenes de datos serían los más convenientes?**
 
 Sí. En el caso de la lógica de la aplicación, se ha utilizado *Python*. Sin embargo, podría escogerse cualquier otro lenguaje, como *Java* o *Go*. Del mismo modo, cada uno de los servicios podría utilizar un lenguaje diferente y ofrecer la misma funcionalidad.
 
