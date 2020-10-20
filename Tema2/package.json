@@ -1,0 +1,27 @@
+{
+  "name": "ejercicio2",
+  "version": "1.0.0",
+  "description": "Prueba de package.json para el segundo ejercicio del tema 2 de CC",
+  "main": "./Persona.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aure-nogueras/EjerciciosCC.git"
+  },
+  "author": "Aure Nogueras <anogueras@correo.ugr.es>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aure-nogueras/EjerciciosCC/issues"
+  },
+  "homepage": "https://github.com/aure-nogueras/EjerciciosCC#readme",
+  "dependencies": {
+    "sqlite": "^4.0.15"
+  },
+  "devDependencies": {
+    "docco": "^0.8.0",
+    "grunt-docco": "^0.5.0",
+    "mocha": "^8.2.0"
+  }
+}
