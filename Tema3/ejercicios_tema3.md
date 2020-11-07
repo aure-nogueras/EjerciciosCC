@@ -115,7 +115,7 @@ Dentro de la carpeta montada, `/test`, creo un script que imprima por pantalla e
 
 Al ejecutar el script sobre la imagen de nuevo-alpine, vemos que devuelve correctamente el contenido de hola-mundo.txt.
 
-![Ejecución del script sobre nuevo-alpine](./imgs/script.png "Ejecución del script sobre nuevo-alpine")
+![Ejecución del script sobre nuevo-alpine](./imgs/uso_script.png "Ejecución del script sobre nuevo-alpine")
 
 ## Ejercicio 6
 
