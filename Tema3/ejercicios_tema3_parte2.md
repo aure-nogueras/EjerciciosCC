@@ -4,7 +4,7 @@
 
 **Reproducir los contenedores creados anteriormente usando un Dockerfile.**
 
-He reproducido el contenedor del [ejercicio 3](https://github.com/aure-nogueras/EjerciciosCC/blob/main/Tema3/ejercicios_tema3.md). Para ello, he creado *hola-mundo.txt* cuyo contenido es: *"Hola, mundo! :)"*. A continuación, he configurado el *Dockerfile* con el siguiente contenido:
+He reproducido el contenedor del [ejercicio 3](https://github.com/aure-nogueras/EjerciciosCC/blob/main/Tema3/ejercicios_tema3_parte1.md). Para ello, he creado *hola-mundo.txt* cuyo contenido es: *"Hola, mundo! :)"*. A continuación, he configurado el *Dockerfile* con el siguiente contenido:
 
 ```
 FROM alpine
