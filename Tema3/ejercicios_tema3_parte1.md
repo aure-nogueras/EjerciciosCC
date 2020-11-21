@@ -1,4 +1,4 @@
-# Ejercicios tema 3
+# Ejercicios tema 3 parte 1
 
 ## Ejercicio 1
 
@@ -116,27 +116,5 @@ Dentro de la carpeta montada, `/test`, creo un script que imprima por pantalla e
 Al ejecutar el script sobre la imagen de nuevo-alpine, vemos que devuelve correctamente el contenido de hola-mundo.txt.
 
 ![Ejecución del script sobre nuevo-alpine](./imgs/uso_script.png "Ejecución del script sobre nuevo-alpine")
-
-## Ejercicio 6
-
-**Usar un miniframework REST para crear un servicio web y introducirlo en un contenedor, y componerlo con un cliente REST que sea el que finalmente se ejecuta y sirve como “frontend”.**
-
-
-
-## Ejercicio 7
-
-**Reproducir los contenedores creados anteriormente usando un Dockerfile.**
-
-## Ejercicio 8
-
-**Crear con docker-machine una máquina virtual local que permita desplegar contenedores y ejecutar en él contenedores creados con antelación.**
-
-
-
-
-
-
-
-
 
 
