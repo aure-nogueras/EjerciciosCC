@@ -8,9 +8,9 @@ He reproducido el contenedor del [ejercicio 3](https://github.com/aure-nogueras/
 
 ```
 FROM alpine
-RUN mkdir prueba && cd prueba
-COPY hola-mundo.txt prueba
-RUN cat prueba/hola-mundo.txt
+WORKDIR prueba
+COPY hola-mundo.txt ./
+CMD cat hola-mundo.txt
 ```
 
 Creo la imagen a partir del *Dockerfile*:
