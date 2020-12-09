@@ -15,7 +15,7 @@ CMD cat hola-mundo.txt
 
 Creo la imagen a partir del *Dockerfile*:
 
-![Imagen creada a partir del *Dockerfile*](./imgs/dockerfile.png "Imagen creada a partir del *Dockerfile*")
+![Imagen creada a partir del *Dockerfile*](./imgs/dockerfile-build.png "Imagen creada a partir del *Dockerfile*")
 
 Miro las imágenes actuales con *docker images* para comprobar que se ha creado correctamente:
 
