@@ -25,10 +25,6 @@ Por último, creo un contenedor a partir de la imagen y muestro por pantalla el 
 
 ![Contenedor de alpine-hola](./imgs/alpine-hola.png "Contenedor de alpine-hola")
 
-## Ejercicio 7
-
-**Usar un miniframework REST para crear un servicio web y introducirlo en un contenedor, y componerlo con un cliente REST que sea el que finalmente se ejecuta y sirve como “frontend”.**
-
 
 
 

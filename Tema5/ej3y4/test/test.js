@@ -6,7 +6,7 @@ describe("PUT experiencia", function(){
 		request(app)
 			.put('/experience/Experiencia/Soy%20lesbiana/lisa@correo.es')
 			.expect('Content-Type',/json/)
-			.expect(200,done());
+			.expect(200,done);
 	});
 });
 
@@ -15,7 +15,7 @@ describe("PUT info", function(){
 		request(app)
 			.put('/info/No%20binarie/No%20identificarse%20como%20hombre%20ni%20como%20mujer/rodri@correo.es')
 			.expect('Content-Type',/json/)
-			.expect(200,done());
+			.expect(200,done);
 	});
 });
 
@@ -25,7 +25,7 @@ describe("GET todas las experiencias y términos", function(){
 			.get('/')
 			.set('Accept', 'application/json')
 			.expect('Content-Type',/json/)
-			.expect(200,done());
+			.expect(200,done);
 	});
 });
 
@@ -34,16 +34,16 @@ describe("DELETE info", function(){
 		request(app)
 			.delete('/info/No%20binarie/No%20identificarse%20como%20hombre%20ni%20como%20mujer/rodri@correo.es')
 			.expect('Content-Type',/json/)
-			.expect(200,done());
+			.expect(200,done);
 	});
 });
 
 describe("DELETE experiencia", function(){
 	it('Borra información sobre una experiencia', function(done){
 		request(app)
-			.put('/experience/Experiencia/Soy%20lesbiana/lisa@correo.es')
+			.delete('/experience/Experiencia/Soy%20lesbiana/lisa@correo.es')
 			.expect('Content-Type',/json/)
-			.expect(200,done());
+			.expect(200,done);
 	});
 });
 
@@ -52,16 +52,16 @@ describe("DELETE info", function(){
 		request(app)
 			.delete('/info/No%20binarie/No%20identificarse%20como%20hombre%20ni%20como%20mujer/rodri@correo.es')
 			.expect('Content-Type',/json/)
-			.expect(404,done());
+			.expect(404,done);
 	});
 });
 
 describe("DELETE experiencia", function(){
 	it('Devuelve error al no encontrar la experiencia', function(done){
 		request(app)
-			.put('/experience/Experiencia/Soy%20lesbiana/lisa@correo.es')
+			.delete('/experience/Experiencia/Soy%20lesbiana/lisa@correo.es')
 			.expect('Content-Type',/json/)
-			.expect(404,done());
+			.expect(404,done);
 	});
 });
 

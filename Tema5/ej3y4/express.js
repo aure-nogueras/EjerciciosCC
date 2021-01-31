@@ -19,11 +19,14 @@ app.put('/experience/:name/:description/:email', function (req, res) {
 // Borra una experiencia
 app.delete('/experience/:name/:description/:email', function (req, res) {
 	var nueva_experiencia = new info(req.params.name, req.params.description, req.params.email);
+	var mensaje;
 	if(controller.findInfoAndExperiences(nueva_experiencia) != -1){
-		res.status(200).send("Borrado con éxito\n");
+		mensaje = "Borrado con éxito\n"
+		res.status(200).send({mensaje});
 		controller.deleteInfoAndExperiences(nueva_experiencia);
 	}else{
-		res.status(404).send("No existe esa experiencia\n");
+		mensaje = "No existe esa experiencia\n";
+		res.status(404).send({mensaje});
 	}
 });
 
@@ -38,11 +41,14 @@ app.put('/info/:name/:description/:email', function (req, res) {
 // Borra un término
 app.delete('/info/:name/:description/:email', function (req, res) {
 	var nuevo_termino = new info(req.params.name, req.params.description, req.params.email);
+	var mensaje;
 	if(controller.findInfoAndExperiences(nuevo_termino) != -1){
-		res.status(200).send("Borrado con éxito\n");
+		mensaje = "Borrado con éxito\n";
+		res.status(200).send({mensaje});
 		controller.deleteInfoAndExperiences(nuevo_termino);
 	}else{
-		res.status(404).send("No existe ese término\n");
+		mensaje = "No existe ese término\n";
+		res.status(404).send({mensaje});
 	}
 });
 

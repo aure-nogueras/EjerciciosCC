@@ -113,11 +113,14 @@ app.put('/experience/:name/:description/:email', function (req, res) {
 // Borra una experiencia
 app.delete('/experience/:name/:description/:email', function (req, res) {
 	var nueva_experiencia = new info(req.params.name, req.params.description, req.params.email);
+	var mensaje;
 	if(controller.findInfoAndExperiences(nueva_experiencia) != -1){
-		res.status(200).send("Borrado con éxito\n");
+		mensaje = "Borrado con éxito\n"
+		res.status(200).send({mensaje});
 		controller.deleteInfoAndExperiences(nueva_experiencia);
 	}else{
-		res.status(404).send("No existe esa experiencia\n");
+		mensaje = "No existe esa experiencia\n";
+		res.status(404).send({mensaje});
 	}
 });
 
@@ -132,11 +135,14 @@ app.put('/info/:name/:description/:email', function (req, res) {
 // Borra un término
 app.delete('/info/:name/:description/:email', function (req, res) {
 	var nuevo_termino = new info(req.params.name, req.params.description, req.params.email);
+	var mensaje;
 	if(controller.findInfoAndExperiences(nuevo_termino) != -1){
-		res.status(200).send("Borrado con éxito\n");
+		mensaje = "Borrado con éxito\n";
+		res.status(200).send({mensaje});
 		controller.deleteInfoAndExperiences(nuevo_termino);
 	}else{
-		res.status(404).send("No existe ese término\n");
+		mensaje = "No existe ese término\n";
+		res.status(404).send({mensaje});
 	}
 });
 
@@ -148,6 +154,8 @@ app.get('/', function (req, res) {
 
 app.listen(port);
 console.log('Server running at http://127.0.0.1:'+port+'/');
+
+module.exports = app;
 ```
 
 Voy a comprobar ahora que funciona de forma adecuada. Para ello, primero utilizo PUT para crear una experiencia y un término nuevos:
@@ -184,7 +192,7 @@ describe("PUT experiencia", function(){
 		request(app)
 			.put('/experience/Experiencia/Soy%20lesbiana/lisa@correo.es')
 			.expect('Content-Type',/json/)
-			.expect(200,done());
+			.expect(200,done);
 	});
 });
 
@@ -193,7 +201,7 @@ describe("PUT info", function(){
 		request(app)
 			.put('/info/No%20binarie/No%20identificarse%20como%20hombre%20ni%20como%20mujer/rodri@correo.es')
 			.expect('Content-Type',/json/)
-			.expect(200,done());
+			.expect(200,done);
 	});
 });
 
@@ -203,7 +211,7 @@ describe("GET todas las experiencias y términos", function(){
 			.get('/')
 			.set('Accept', 'application/json')
 			.expect('Content-Type',/json/)
-			.expect(200,done());
+			.expect(200,done);
 	});
 });
 
@@ -212,16 +220,16 @@ describe("DELETE info", function(){
 		request(app)
 			.delete('/info/No%20binarie/No%20identificarse%20como%20hombre%20ni%20como%20mujer/rodri@correo.es')
 			.expect('Content-Type',/json/)
-			.expect(200,done());
+			.expect(200,done);
 	});
 });
 
 describe("DELETE experiencia", function(){
 	it('Borra información sobre una experiencia', function(done){
 		request(app)
-			.put('/experience/Experiencia/Soy%20lesbiana/lisa@correo.es')
+			.delete('/experience/Experiencia/Soy%20lesbiana/lisa@correo.es')
 			.expect('Content-Type',/json/)
-			.expect(200,done());
+			.expect(200,done);
 	});
 });
 
@@ -230,16 +238,16 @@ describe("DELETE info", function(){
 		request(app)
 			.delete('/info/No%20binarie/No%20identificarse%20como%20hombre%20ni%20como%20mujer/rodri@correo.es')
 			.expect('Content-Type',/json/)
-			.expect(404,done());
+			.expect(404,done);
 	});
 });
 
 describe("DELETE experiencia", function(){
 	it('Devuelve error al no encontrar la experiencia', function(done){
 		request(app)
-			.put('/experience/Experiencia/Soy%20lesbiana/lisa@correo.es')
+			.delete('/experience/Experiencia/Soy%20lesbiana/lisa@correo.es')
 			.expect('Content-Type',/json/)
-			.expect(404,done());
+			.expect(404,done);
 	});
 });
 ```
