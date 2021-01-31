@@ -2,13 +2,18 @@
   "name": "ej2",
   "version": "1.0.0",
   "description": "",
-  "main": "InfoAndExperiences.js",
+  "main": "express.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt"
   },
   "author": "Aure Nogueras <anogueras@correo.ugr.es>",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.3.0",
+    "grunt-run": "^0.8.1",
+    "pm2": "^4.5.4"
   }
 }

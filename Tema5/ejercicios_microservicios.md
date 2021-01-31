@@ -216,4 +216,76 @@ Después de ejecutar los tests usando `npm test`, vemos que todos ellos pasan, c
 ![Tests para comprobar el funcionamiento de las rutas](./imgs/tests.png "Tests para comprobar el funcionamiento de las rutas")
 
 
+## Ejercicio 4
+
+**Experimentar con diferentes gestores de procesos y servidores web front-end para un microservicio que se haya hecho con antelación, por ejemplo en la sección anterior.**
+
+Primero vamos a probar a utilizar `pm2` con el microservicio creado en el [ejercicio 1](./ej1/express.js). Se instala con `npm install pm2 -g` y se ejecuta:
+
+![Puesta en marcha de los procesos con *pm2*](./imgs/pm2.png "Puesta en marcha de los procesos con *pm2*")
+
+Si accedemos a `127.0.0.1:8080/experience`, vemos que se muestran correctamente los datos:
+
+![Funcionamiento del servidor](./imgs/local_experience.png "Funcionamiento del servidor")
+
+Por último, paramos los procesos:
+
+![Parada de los procesos con *pm2*](./imgs/pm2_stop.png "Parada de los procesos con *pm2*")
+
+Vamos a usar ahora `forever`. Para ello, he leído la documentación disponible [aquí](https://www.npmjs.com/package/forever). De este  modo, se pone en marcha de forma análoga a `pm2`, una vez instalado con `npm install forever -g`.
+
+![Puesta en marcha del proceso con *forever*](./imgs/forever.png "Puesta en marcha del proceso con *forever*")
+
+Miramos ahora `127.0.0.1:8080/info`:
+
+![Funcionamiento del servidor](./imgs/local_info.png "Funcionamiento del servidor")
+
+Por último, paramos el proceso:
+
+![Parada del proceso con *forever*](./imgs/forever_stop.png "Parada del proceso con *forever*")
+
+## Ejercicio 5
+
+**Usar rake, invoke o la herramienta equivalente en tu lenguaje de programación para programar diferentes tareas que se puedan lanzar fácilmente desde la línea de órdenes un microservicio.**
+
+He utilizado `grunt` para programar tareas que lancen `pm2` y pongan en marcha el proceso asociado al microservicio. Este es el contenido del [*Gruntfile.js*](./ej1/Gruntfile.js):
+
+```
+module.exports = function(grunt) {
+
+  // Project configuration.
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    'run': {
+    	start: {
+    		cmd: 'pm2',
+		  	args: ['start', './express.js', '-i', '3'],
+		},
+		stop: {
+			cmd: 'pm2',
+			args: ['stop', 'all'],
+		},
+		delete: {
+			cmd: 'pm2',
+			args: ['delete', 'all'],
+		}
+    },
+  });
+
+  grunt.loadNpmTasks('grunt-run');
+  
+  // Default task(s).
+  grunt.registerTask('start', 'run:start');
+  grunt.registerTask('stop', 'run:stop');
+  grunt.registerTask('delete', 'run:delete');
+  
+};
+```
+
+Probamos a ejecutar cada una de las tareas, que lanzarán, pararán y borrarán los procesos:
+
+![Uso de `grunt` con *pm2*](./imgs/grunt.png "Uso de `grunt` con *pm2*")
+
+
+
 
