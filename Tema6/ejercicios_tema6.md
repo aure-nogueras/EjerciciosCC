@@ -27,7 +27,7 @@ Por último, se listan los contenedores del *pod* y vemos que se han añadido co
 
 Primero he instalado `docker-compose` siguiendo las instrucciones de la [documentación](https://docs.docker.com/compose/install/#install-compose). A continuación, he consultado [información](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/) sobre cómo crear un contenedor para una aplicación web con *Node.js*. 
 
-Por una parte, he creado un servidor con *express*, que está en la carpeta [*server*](./server). Si se ejecuta el contenedor, se lanza el microservicio en `http://0.0.0.0:8080/`. Por otra parte, la carpeta [*client*](./client) contiene el cliente, que accede a la dirección indicada para realizar una petición GET. 
+Por una parte, he creado un servidor con *express*, que está en la carpeta [*server*](./server). Si se ejecuta el contenedor, se lanza el microservicio en `http://0.0.0.0:8080/`. Por otra parte, la carpeta [*client*](./client) contiene el cliente, que accede a la dirección indicada para realizar una petición GET. Para esta parte se ha utilizado [este tutorial](https://nodejs.dev/learn/making-http-requests-with-nodejs).
 
 Estos dos servicios se han compuesto con el archivo [*docker-compose.yml*](./docker-compose.yml). Este es su contenido:
 
