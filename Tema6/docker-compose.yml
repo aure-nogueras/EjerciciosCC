@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  server:
+    container_name: server
+    build: ./server
+    ports:
+      - "8080:8080"
+    networks:
+      - red
+  client:
+    container_name: client
+    build: ./client
+    depends_on:
+      - server
+    networks:
+      - red
+
+networks:
+  red:
+    driver: bridge
